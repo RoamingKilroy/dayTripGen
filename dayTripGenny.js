@@ -1,9 +1,71 @@
 "use strict"
 
-
 //  destination, restaurant, transport, entertainment all chosen randomly with option to rechose.
 // must be able to confirm all of the above once chosen and print to console. 
 // all functions must only do one thing......
 // must have three commits with descriptive messages
 
-// function for each choice that 
+// each string of choices will be in an array. 
+// Prompt random index from array and if loop a yes/no response. 
+// if yes push to new array. if no, reprompt. rinse and repeat for all. 
+// last prompt to confirm trip comp. if yes print to console. if no print a passive agressive string. 
+
+let finalArray=[];
+const locArray = ["Philadelphia", "New York", "Dallas", "Miami", "Orlando", "Los Angles"];
+const travelArray = ["Rideshare", "Public Transportation", "Personal Vehicle"]
+const mealArray = ["BK", "Chic Fil A", "Nothing"];
+const entArray = ["Club", "Comedy Show", "Muesum", "Concert"]
+
+function getRandomItem(arr)
+{
+   return arr[Math.floor(Math.random()*arr.length)];
+}
+
+let locRandom = getRandomItem(locArray);
+let travelRandom = getRandomItem(travelArray);
+let mealRandom = getRandomItem(mealArray);
+let entRandom = getRandomItem(entArray);
+finalArray.push(locRandom, travelRandom, mealRandom, entRandom);
+
+function tripPrint(){
+    console.log("Your day trip is to the city of " + locRandom + ". You will be getting around via " 
+    + travelRandom + ". You should eat at " + mealRandom + 
+    ". And you're entertainment will be going to a " + entRandom + "." + 
+    " Are you happy with this trip?");
+}
+function response(){
+    let trip = prompt("Your day trip is to the city of " + locRandom + ". You will be getting around via " 
+    + travelRandom + ". You should eat at " + mealRandom + 
+    ". And you're entertainment will be going to a " + entRandom + "." + 
+    " Are you happy with this trip?")
+    if(trip == "yes" || trip == "yes"){
+        console.log(tripPrint());
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function tripChanger (){
+    while(response() == false){
+        let noPrompt = prompt("Please let me know which you'd like to change. " +
+        "1 for city, 2 for transport, 3 for meal, or 4 for entertainment.");
+        switch(noPrompt){
+            case "1":
+                locRandom = getRandomItem(locArray);
+                break;
+            case "2":
+                travelRandom = getRandomItem(travelArray);
+                break;
+            case "3":
+                mealRandom = getRandomItem(mealArray);
+                break;
+            case "4":
+                entRandom = getRandomItem(entArray);
+                break;     
+        }        
+    }
+}
+
+tripChanger ()
