@@ -39,7 +39,7 @@ function response(){
     ". And you're entertainment will be going to a " + entRandom + "." + 
     " Are you happy with this trip?")
     if(trip == "yes" || trip == "yes"){
-        console.log(tripPrint());
+        tripPrint();
         return true;
     }
     else{
