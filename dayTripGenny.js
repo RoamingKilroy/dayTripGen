@@ -1,23 +1,12 @@
 "use strict"
 
-//  destination, restaurant, transport, entertainment all chosen randomly with option to rechose.
-// must be able to confirm all of the above once chosen and print to console. 
-// all functions must only do one thing......
-// must have three commits with descriptive messages
-
-// each string of choices will be in an array. 
-// Prompt random index from array and if loop a yes/no response. 
-// if yes push to new array. if no, reprompt. rinse and repeat for all. 
-// last prompt to confirm trip comp. if yes print to console. if no print a passive agressive string. 
-
 let finalArray=[];
 const locArray = ["Philadelphia", "New York", "Dallas", "Miami", "Orlando", "Los Angles"];
 const travelArray = ["Rideshare", "Public Transportation", "Personal Vehicle"]
 const mealArray = ["BK", "Chic Fil A", "Nothing"];
 const entArray = ["Club", "Comedy Show", "Muesum", "Concert"]
 
-function getRandomItem(arr)
-{
+function getRandomItem(arr){
    return arr[Math.floor(Math.random()*arr.length)];
 }
 
